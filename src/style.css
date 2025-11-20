@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@theme {
+  --font-dalmation: 'Dalmation', cursive;
+  --animate-startup: startup 2s ease-out forwards;
+
+  @keyframes startup {
+    0% {
+      transform: scale(0.1);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: scale(3);
+      opacity: 1;
+    }
+  }
+
+  --animate-menu-open: menu-open 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  --animate-menu-close: menu-close 0.4s ease-in-out forwards;
+  --animate-menu-appear: menu-appear 1s ease-out forwards;
+  --animate-menu-disappear: menu-disappear 0.3s ease-in forwards;
+
+  @keyframes menu-open {
+    0% {
+      top: 50%;
+      left: 50%;
+    }
+    100% {
+      top: calc(50% - 35vh);
+      left: 50%;
+    }
+  }
+
+  @keyframes menu-open-text {
+    0% {
+      transform: translate(-50%, -50%) scale(3);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1.5);
+      opacity: 1;
+    }
+  }
+
+  @keyframes menu-close {
+    0% {
+      top: calc(50% - 35vh);
+      left: 50%;
+    }
+    100% {
+      top: 50%;
+      left: 50%;
+    }
+  }
+
+  @keyframes menu-close-text {
+    0% {
+      transform: translate(-50%, -50%) scale(1.5);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(3);
+      opacity: 1;
+    }
+  }
+
+  @keyframes menu-appear {
+    0% {
+      transform: translate(-50%, -50%) scale(0.1);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes menu-disappear {
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(0.1);
+      opacity: 0;
+    }
+  }
+
+  --animate-fade-in-up: fade-in-up 0.4s ease-out;
+}
+
+.screen-container,
+.screen-wrapper,
+#screen {
+  pointer-events: none !important;
+}
+
+#screen > * {
+  pointer-events: auto !important;
+}
+
+.content-wrapper {
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 1;
+}
